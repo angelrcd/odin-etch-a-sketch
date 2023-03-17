@@ -1,4 +1,5 @@
-appendSquares(16,16);
+setBoardGridSize(50,50)
+appendSquares(50,50);
 addEventHoverTrail()
 
 function appendSquares(width, height){
@@ -27,4 +28,13 @@ function addEventHoverTrail(){
     });
   
   })
+}
+
+function setBoardGridSize(width, height){
+  const board = document.querySelector(".board");
+  console.log(board)
+  board.style.cssText = `
+  grid-template-columns: repeat(${width}, 1fr);
+  grid-template-rows: repeat(${height}, 1fr);
+  `
 }
