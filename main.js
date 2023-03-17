@@ -1,11 +1,9 @@
-setBoardGridSize(50,50)
-appendSquares(50,50);
-addEventHoverTrail()
-
-const deleteButton = document.querySelector(".delete-button")
+const newBoardButton = document.querySelector(".new-board-button"); 
+const deleteButton = document.querySelector(".delete-button");
 
 
-deleteButton.addEventListener('click', ()=> deleteBoard())
+deleteButton.addEventListener('click', deleteBoard)
+newBoardButton.addEventListener('click', replaceBoard)
 
 function appendSquares(width, height){
   const board = document.querySelector(".board")
@@ -47,4 +45,15 @@ function setBoardGridSize(width, height){
 function deleteBoard(){
   const squares = document.querySelectorAll(".square");
   squares.forEach(square => square.classList.remove("painted"));
+}
+
+function replaceBoard(){
+  const width = prompt("Width");
+  const height = prompt("Height");
+
+  const board = document.querySelector(".board");
+  board.innerHTML=""
+  setBoardGridSize(width, height)
+  appendSquares(width, height);
+  addEventHoverTrail()
 }
