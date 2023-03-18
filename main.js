@@ -1,9 +1,14 @@
 const newBoardButton = document.querySelector(".new-board-button"); 
 const deleteButton = document.querySelector(".delete-button");
+const colorPicker = document.getElementById('color-picker');
+let currentPencilColor = "rgba(0, 0, 0, 1)";
 
 
 deleteButton.addEventListener('click', deleteBoard)
 newBoardButton.addEventListener('click', replaceBoard)
+colorPicker.addEventListener('change', e => changePencilColor(e.detail.rgba))
+
+placeDefaultBoard()
 
 function appendSquares(width, height){
   const board = document.querySelector(".board")
@@ -22,12 +27,12 @@ function addEventHoverTrail(){
 
     square.addEventListener('mouseover', (e)=> {
     if(e.buttons === 1){
-      square.classList.add("painted")
+      square.style.backgroundColor = currentPencilColor;
     }
     });
 
     square.addEventListener('click', ()=>{
-      square.classList.add("painted")
+      square.style.backgroundColor = currentPencilColor;
     });
   
   })
@@ -56,4 +61,15 @@ function replaceBoard(){
   setBoardGridSize(width, height)
   appendSquares(width, height);
   addEventHoverTrail()
+}
+
+function placeDefaultBoard(){
+  const board = document.querySelector(".board");
+  setBoardGridSize(20, 20)
+  appendSquares(20, 20);
+  addEventHoverTrail()
+}
+
+function changePencilColor(){
+  currentPencilColor = colorPicker.rgba;
 }

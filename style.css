@@ -1,13 +1,28 @@
+.frame {
+  padding: 2em;
+  width: fit-content;
+  background-color: #46B19D;
+  border-radius: 5px;
+  margin:  auto;
+}
+
 .board {
   display: grid;
-  width: 800px;
-  border: 1px solid black;
+  max-width: 800px;
+  width: 80vw;
+  border: 1px solid lightgray;
+  background: lightgray;
+  gap: 1px;
+
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .square{
   aspect-ratio: 1 / 1;
-}
-
-.painted {
-  background-color: #010101;
+  background: white;
 }
