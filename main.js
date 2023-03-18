@@ -49,12 +49,16 @@ function setBoardGridSize(width, height){
 
 function deleteBoard(){
   const squares = document.querySelectorAll(".square");
-  squares.forEach(square => square.classList.remove("painted"));
+  squares.forEach(square => square.style.backgroundColor = "");
 }
 
 function replaceBoard(){
   const width = prompt("Width");
   const height = prompt("Height");
+
+  if(!Number.isFinite(+width) || !Number.isFinite(+height)){
+    return;
+  }
 
   const board = document.querySelector(".board");
   board.innerHTML=""

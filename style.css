@@ -3,12 +3,12 @@
   width: fit-content;
   background-color: #46B19D;
   border-radius: 5px;
-  margin:  auto;
+  margin: 1em auto;
 }
 
 .board {
   display: grid;
-  max-width: 800px;
+  max-width: 80vh;
   width: 80vw;
   border: 1px solid lightgray;
   background: lightgray;
@@ -22,7 +22,13 @@
   -ms-user-select: none;
 }
 
-.square{
+.square {
   aspect-ratio: 1 / 1;
   background: white;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
